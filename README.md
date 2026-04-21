@@ -139,3 +139,53 @@ Desenvolvedor focado em backend, APIs REST e arquitetura de software.
 - busca avançada
 - upload de imagens
 - deploy em nuvem
+
+- ---
+
+## 📚 Documentação
+
+A documentação técnica do projeto está disponível na pasta **docs**.
+
+### Visão Geral
+- 📄 [Overview](docs/OVERVIEW.md)
+
+### Arquitetura
+- 🧠 [Architecture](docs/ARCHITECTURE.md)
+
+### API
+- 📡 [API](docs/API.md)
+
+### Autenticação
+- 🔐 [Authentication](docs/AUTHENTICATION.md)
+
+### Banco de Dados
+- 🗄 [Database](docs/DATABASE.md)
+
+### Frontend
+- 🎨 [Frontend](docs/FRONTEND.md)
+
+### Deploy
+- 🚀 [Deployment](docs/DEPLOYMENT.md)
+
+### Roadmap
+- 🛣 [Roadmap](docs/ROADMAP.md)
+
+---
+
+## 📌 Estrutura da Documentação
+
+
+docs
+├── OVERVIEW.md
+├── ARCHITECTURE.md
+├── API.md
+├── AUTHENTICATION.md
+├── DATABASE.md
+├── FRONTEND.md
+├── DEPLOYMENT.md
+├── ROADMAP.md
+
+
+---
+
+Documentação estruturada seguindo padrões utilizados em projetos profissionais.
