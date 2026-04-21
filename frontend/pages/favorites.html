@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos | Minha Loja</title>
+    <meta name="description" content="Página de favoritos da Minha Loja com wishlist persistida no navegador e integração com carrinho.">
+    <link rel="stylesheet" href="../assets/css/pages/favorites.css">
+</head>
+<body>
+    <header class="favorites-header">
+        <div class="favorites-header__container">
+            <a class="brand" href="../index.html" aria-label="Voltar para a página inicial">
+                <span>Minha Loja</span>
+                <span class="brand__badge">Favoritos</span>
+            </a>
+
+            <nav class="favorites-nav" aria-label="Navegação principal">
+                <a href="../index.html">Início</a>
+                <a href="./products.html">Produtos</a>
+                <a href="./favorites.html" aria-current="page">
+                    Favoritos
+                    <span class="badge-counter" data-favorites-count>0</span>
+                </a>
+                <a href="./cart.html">
+                    Carrinho
+                    <span class="badge-counter" data-cart-count>0</span>
+                </a>
+                <a href="./admin.html">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="favorites-shell">
+        <section class="favorites-topbar">
+            <div>
+                <h1 class="favorites-title">Seus favoritos</h1>
+                <p class="favorites-subtitle">
+                    Produtos salvos no navegador para simular wishlist de ecommerce real.
+                </p>
+            </div>
+
+            <div class="favorites-topbar__meta">
+                <strong id="favoritesCount">0 favorito(s)</strong>
+            </div>
+        </section>
+
+        <div id="favoritesEmptyState" class="empty-state">
+            <h2>Nenhum favorito salvo</h2>
+            <p>Adicione produtos aos favoritos para montar sua wishlist.</p>
+            <a class="btn btn--primary" href="./products.html">Explorar produtos</a>
+        </div>
+
+        <section
+            id="favoritesGrid"
+            class="favorites-grid"
+            aria-label="Lista de produtos favoritos"
+        ></section>
+
+        <div class="favorites-actions">
+            <button id="clearFavoritesButton" class="btn btn--secondary" type="button">
+                Limpar favoritos
+            </button>
+        </div>
+    </main>
+
+    <script type="module" src="../assets/js/pages/favorites.js"></script>
+</body>
+</html>

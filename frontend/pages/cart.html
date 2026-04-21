@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho | Minha Loja</title>
+    <meta name="description" content="Carrinho de compras da Minha Loja com persistência em localStorage e resumo dinâmico do pedido.">
+    <link rel="stylesheet" href="../assets/css/pages/cart.css">
+</head>
+<body>
+    <header class="cart-header">
+        <div class="cart-header__container">
+            <a class="brand" href="../index.html" aria-label="Voltar para a página inicial">
+                <span>Minha Loja</span>
+                <span class="brand__badge">Carrinho</span>
+            </a>
+
+            <nav class="cart-nav" aria-label="Navegação principal">
+                <a href="../index.html">Início</a>
+                <a href="./products.html">Produtos</a>
+                <a href="./favorites.html">Favoritos</a>
+                <a href="./cart.html" aria-current="page">
+                    Carrinho
+                    <span class="cart-badge" data-cart-count>0</span>
+                </a>
+                <a href="./admin.html">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="cart-shell">
+        <section class="cart-topbar">
+            <div>
+                <span class="cart-topbar__eyebrow">Checkout simulado</span>
+                <h1 class="cart-title">Seu carrinho</h1>
+                <p class="cart-subtitle">
+                    Itens persistidos com localStorage para simular uma experiência real de ecommerce,
+                    com atualização dinâmica de quantidade, subtotal e total.
+                </p>
+            </div>
+
+            <div class="cart-topbar__actions">
+                <strong id="cartItemsCount">0 item(s)</strong>
+                <a class="btn btn--secondary" href="./products.html">Continuar comprando</a>
+            </div>
+        </section>
+
+        <section class="cart-layout">
+            <div class="cart-main">
+                <div id="emptyCartState" class="empty-state">
+                    <h2>Seu carrinho está vazio</h2>
+                    <p>Adicione produtos para começar sua compra.</p>
+                    <a class="btn btn--primary" href="./products.html">Ir para produtos</a>
+                </div>
+
+                <div id="cartItems" class="cart-list"></div>
+            </div>
+
+            <aside id="cartSummary" class="cart-summary" aria-labelledby="cartSummaryTitle">
+                <h2 id="cartSummaryTitle" class="cart-summary__title">Resumo do pedido</h2>
+                <p class="cart-summary__subtitle">
+                    Confira os valores atualizados antes de avançar para o checkout.
+                </p>
+
+                <div class="cart-summary__row">
+                    <span>Subtotal</span>
+                    <strong id="cartSubtotal">R$ 0,00</strong>
+                </div>
+
+                <div class="cart-summary__row">
+                    <span>Frete</span>
+                    <strong id="cartShipping">Grátis</strong>
+                </div>
+
+                <div class="cart-summary__row">
+                    <span>Descontos</span>
+                    <strong>R$ 0,00</strong>
+                </div>
+
+                <div class="cart-summary__row cart-summary__row--total">
+                    <span>Total</span>
+                    <strong id="cartTotal">R$ 0,00</strong>
+                </div>
+
+                <div class="cart-summary__actions">
+                    <a id="checkoutButton" class="btn btn--primary" href="./checkout.html">
+                        Finalizar compra
+                    </a>
+
+                    <button id="clearCartButton" class="btn btn--secondary" type="button">
+                        Limpar carrinho
+                    </button>
+                </div>
+
+                <div class="cart-summary__security">
+                    <p>Compra segura</p>
+                    <small>Ambiente simulado para portfólio com experiência inspirada em marketplaces reais.</small>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script type="module" src="../assets/js/pages/cart.js"></script>
+</body>
+</html>

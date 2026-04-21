@@ -1,0 +1,623 @@
+/* =====================================
+PRODUCT CARD - PADRÃO PROFISSIONAL
+===================================== */
+
+.product-card{
+
+background:#ffffff;
+
+border-radius:18px;
+
+border:1px solid #e3e6e6;
+
+padding:16px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:10px;
+
+position:relative;
+
+transition:.25s ease;
+
+box-shadow:0 6px 18px rgba(0,0,0,.05);
+
+height:100%;
+
+}
+
+.product-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 22px 50px rgba(0,0,0,.12);
+
+}
+
+
+/* IMAGE */
+
+.product-card__image-link{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#f8f8f8;
+
+border-radius:14px;
+
+padding:14px;
+
+min-height:200px;
+
+overflow:hidden;
+
+}
+
+.product-card__image{
+
+max-width:100%;
+
+height:170px;
+
+object-fit:contain;
+
+transition:.35s ease;
+
+}
+
+.product-card:hover .product-card__image{
+
+transform:scale(1.06);
+
+}
+
+
+/* BADGE */
+
+.product-card__badge{
+
+position:absolute;
+
+top:12px;
+
+left:12px;
+
+background:#cc0c39;
+
+color:white;
+
+font-size:11px;
+
+font-weight:900;
+
+padding:5px 10px;
+
+border-radius:999px;
+
+letter-spacing:.3px;
+
+}
+
+
+/* FAVORITE BUTTON */
+
+.product-card__favorite{
+
+position:absolute;
+
+top:12px;
+
+right:12px;
+
+width:34px;
+
+height:34px;
+
+border-radius:50%;
+
+border:none;
+
+background:white;
+
+box-shadow:0 4px 12px rgba(0,0,0,.15);
+
+cursor:pointer;
+
+font-size:15px;
+
+transition:.2s ease;
+
+}
+
+.product-card__favorite:hover{
+
+transform:scale(1.08);
+
+}
+
+.product-card__favorite--active{
+
+background:#fff1f1;
+
+color:#cc0c39;
+
+}
+
+
+/* CONTENT */
+
+.product-card__content{
+
+display:flex;
+
+flex-direction:column;
+
+gap:6px;
+
+flex:1;
+
+}
+
+
+/* CATEGORY */
+
+.product-card__category{
+
+font-size:11px;
+
+font-weight:800;
+
+color:#c45500;
+
+text-transform:uppercase;
+
+letter-spacing:.4px;
+
+}
+
+
+/* TITLE */
+
+.product-card__title{
+
+font-size:15px;
+
+font-weight:700;
+
+line-height:1.4;
+
+min-height:42px;
+
+}
+
+.product-card__title:hover{
+
+color:#c7511f;
+
+}
+
+
+/* RATING */
+
+.product-card__rating{
+
+display:flex;
+
+align-items:center;
+
+gap:6px;
+
+font-size:.85rem;
+
+color:#444;
+
+}
+
+.product-card__stars{
+
+color:#f59e0b;
+
+letter-spacing:1px;
+
+}
+
+.product-card__reviews{
+
+font-size:.8rem;
+
+color:#666;
+
+}
+
+
+/* PRICE */
+
+.product-card__pricing{
+
+display:flex;
+
+flex-direction:column;
+
+gap:2px;
+
+}
+
+.product-card__old-price{
+
+font-size:13px;
+
+color:#565959;
+
+text-decoration:line-through;
+
+}
+
+.product-card__price{
+
+font-size:22px;
+
+font-weight:900;
+
+color:#111;
+
+}
+
+
+/* STOCK */
+
+.product-card__stock{
+
+font-size:.85rem;
+
+font-weight:700;
+
+color:#0f7a2a;
+
+}
+
+
+/* ACTIONS */
+
+.product-card__actions{
+
+margin-top:auto;
+
+display:grid;
+
+gap:8px;
+
+}
+
+.product-card__btn{
+
+border:none;
+
+padding:10px;
+
+border-radius:999px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.2s;
+
+}
+
+
+/* PRIMARY */
+
+.product-card__btn--primary{
+
+background:#ffd814;
+
+}
+
+.product-card__btn--primary:hover{
+
+background:#f7ca00;
+
+}
+
+
+/* SECONDARY */
+
+.product-card__btn--secondary{
+
+background:#fff;
+
+border:1px solid #e3e6e6;
+
+}
+
+.product-card__btn--secondary:hover{
+
+background:#f7f7f7;
+
+}
+/* ===============================
+MICRO ANIMAÇÕES PREMIUM
+================================ */
+
+/* fade entrada suave */
+.fade-in{
+
+animation:fadeIn .6s ease forwards;
+
+opacity:0;
+
+}
+
+@keyframes fadeIn{
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+/* elevação suave */
+
+.hover-lift{
+
+transition:.25s ease;
+
+}
+
+.hover-lift:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 25px 60px rgba(0,0,0,.15);
+
+}
+
+/* brilho leve */
+
+.hover-glow:hover{
+
+box-shadow:
+
+0 0 0 1px rgba(255,153,0,.15),
+
+0 18px 40px rgba(0,0,0,.12);
+
+}
+
+
+/* ===============================
+HERO MAIS PREMIUM
+================================ */
+
+.hero-banner{
+
+background:
+
+radial-gradient(circle at 20% 30%, rgba(255,153,0,.12), transparent 40%),
+
+linear-gradient(135deg,#131921,#232f3e);
+
+}
+
+/* leve movimento */
+
+.hero-banner__visual img{
+
+transition:transform .35s ease;
+
+}
+
+.hero-banner__visual:hover img{
+
+transform:scale(1.05);
+
+}
+
+
+/* ===============================
+CATEGORIES MAIS ELEGANTE
+================================ */
+
+.category-card{
+
+transition:
+
+transform .3s ease,
+
+box-shadow .3s ease,
+
+filter .3s ease;
+
+}
+
+.category-card:hover{
+
+transform:translateY(-8px) scale(1.01);
+
+filter:brightness(1.05);
+
+}
+
+
+/* overlay gradiente melhor */
+
+.category-card::before{
+
+background:
+
+linear-gradient(
+
+180deg,
+
+rgba(0,0,0,.05),
+
+rgba(0,0,0,.7)
+
+);
+
+}
+
+
+/* ===============================
+SECTIONS MAIS PROFISSIONAIS
+================================ */
+
+.section-title{
+
+font-size:clamp(1.6rem,2vw,2.2rem);
+
+letter-spacing:-.02em;
+
+}
+
+
+/* linha elegante */
+
+.section-header{
+
+position:relative;
+
+padding-bottom:10px;
+
+}
+
+.section-header::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:0;
+
+width:70px;
+
+height:3px;
+
+border-radius:999px;
+
+background:linear-gradient(90deg,#ff9900,#ffd814);
+
+}
+
+
+/* ===============================
+GRID MAIS SOFISTICADO
+================================ */
+
+.products-grid{
+
+gap:22px;
+
+}
+
+
+/* ===============================
+PROMO MAIS MODERNO
+================================ */
+
+.promo-section__content{
+
+background:
+
+radial-gradient(circle at 20% 20%, rgba(255,153,0,.12), transparent),
+
+linear-gradient(135deg,#131921,#232f3e);
+
+}
+
+
+/* ===============================
+LOADING SKELETON
+================================ */
+
+.skeleton{
+
+background:linear-gradient(
+
+90deg,
+
+#eee 25%,
+
+#f5f5f5 37%,
+
+#eee 63%
+
+);
+
+background-size:400% 100%;
+
+animation:skeleton 1.4s ease infinite;
+
+border-radius:10px;
+
+}
+
+@keyframes skeleton{
+
+0%{
+
+background-position:100% 0;
+
+}
+
+100%{
+
+background-position:-100% 0;
+
+}
+
+}
+
+
+/* exemplo skeleton card */
+
+.skeleton-card{
+
+height:260px;
+
+border-radius:18px;
+
+}
+
+
+/* ===============================
+SCROLLBAR MAIS MODERNA
+================================ */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#f1f1f1;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#d5d9d9;
+
+border-radius:999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#c7caca;
+
+}

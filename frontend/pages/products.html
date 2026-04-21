@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Produtos | Minha Loja</title>
+
+<meta
+name="description"
+content="Catálogo de produtos da Minha Loja com filtros inteligentes, busca dinâmica e visual premium inspirado em grandes marketplaces."
+>
+
+<link rel="stylesheet" href="../assets/css/base/reset.css">
+<link rel="stylesheet" href="../assets/css/base/variables.css">
+
+<link rel="stylesheet" href="../assets/css/components/buttons.css">
+<link rel="stylesheet" href="../assets/css/components/header.css">
+<link rel="stylesheet" href="../assets/css/components/forms.css">
+<link rel="stylesheet" href="../assets/css/components/alerts.css">
+<link rel="stylesheet" href="../assets/css/components/cards.css">
+<link rel="stylesheet" href="../assets/css/components/feedback.css">
+
+<link rel="stylesheet" href="../assets/css/pages/products.css">
+
+</head>
+
+
+
+<body>
+
+
+<header class="products-header">
+
+<div class="products-header__top">
+
+<div class="products-header__brand-area">
+
+<a
+class="brand"
+href="../index.html"
+>
+
+<span class="brand__name">
+Minha Loja
+</span>
+
+<span class="brand__badge">
+Catálogo
+</span>
+
+</a>
+
+
+<div class="products-header__shipping">
+
+<span>
+🚚 Frete grátis
+</span>
+
+<span>
+•
+</span>
+
+<span>
+Entrega rápida
+</span>
+
+</div>
+
+</div>
+
+
+
+<nav class="products-header__nav">
+
+<a href="../index.html">
+
+Início
+
+</a>
+
+<a
+href="./products.html"
+class="is-active"
+>
+
+Produtos
+
+</a>
+
+
+<a href="./favorites.html">
+
+Favoritos
+
+<span
+class="header-counter"
+data-favorites-count
+>
+
+0
+
+</span>
+
+</a>
+
+
+<a href="./cart.html">
+
+Carrinho
+
+<span
+class="header-counter"
+data-cart-count
+>
+
+0
+
+</span>
+
+</a>
+
+
+<a href="./admin.html">
+
+Admin
+
+</a>
+
+</nav>
+
+</div>
+
+
+
+<div class="products-header__bottom">
+
+
+<div class="quick-nav">
+
+<a href="./products.html">
+☰ Todos
+</a>
+
+<a href="./products.html?sort=price-desc">
+🔥 Ofertas
+</a>
+
+<a href="./products.html?sort=name-asc">
+⭐ Mais vendidos
+</a>
+
+<a href="./products.html?category=eletronicos">
+💻 Eletrônicos
+</a>
+
+<a href="./products.html?category=casa">
+🏠 Casa
+</a>
+
+<a href="./products.html?category=moda">
+👕 Moda
+</a>
+
+<a href="./products.html?category=acessorios">
+⌚ Acessórios
+</a>
+
+<a href="./products.html?category=beleza">
+💄 Beleza
+</a>
+
+</div>
+
+
+
+<form
+class="header-search"
+id="headerSearchForm"
+>
+
+<input
+id="headerSearchInput"
+type="text"
+placeholder="Buscar produtos..."
+>
+
+<button>
+🔍
+</button>
+
+</form>
+
+
+
+<div class="products-header__summary">
+
+<span>
+📦
+</span>
+
+<strong id="topProductsCount">
+
+0 produtos
+
+</strong>
+
+</div>
+
+</div>
+
+</header>
+
+
+
+
+<main class="products-shell">
+
+
+<nav class="breadcrumb">
+
+<a href="../index.html">
+
+Início
+
+</a>
+
+<span>
+
+›
+
+</span>
+
+<span>
+
+Produtos
+
+</span>
+
+</nav>
+
+
+
+
+<section class="products-main">
+
+
+<aside class="products-sidebar">
+
+
+<div class="sidebar-card">
+
+
+<div class="sidebar-card__header">
+
+<h2>
+
+Filtros
+
+</h2>
+
+
+<button
+id="clearFiltersButton"
+class="link-button"
+>
+
+Limpar
+
+</button>
+
+
+</div>
+
+
+
+
+<div class="filter-group">
+
+<label>
+
+Buscar
+
+</label>
+
+
+<div class="search-inline">
+
+<input
+id="searchInput"
+placeholder="ex: notebook..."
+>
+
+<button>
+🔍
+</button>
+
+</div>
+
+</div>
+
+
+
+
+<div class="filter-group">
+
+<label>
+
+Categoria
+
+</label>
+
+
+<select id="categoryFilter">
+
+<option value="">
+Todas
+</option>
+
+</select>
+
+</div>
+
+
+
+
+<div class="filter-group">
+
+<label>
+
+Ordenar por
+
+</label>
+
+
+<select id="sortFilter">
+
+<option value="">
+Padrão
+</option>
+
+<option value="price-asc">
+Menor preço
+</option>
+
+<option value="price-desc">
+Maior preço
+</option>
+
+<option value="name-asc">
+Nome A-Z
+</option>
+
+<option value="name-desc">
+Nome Z-A
+</option>
+
+</select>
+
+</div>
+
+
+
+
+<div class="filter-group">
+
+<label>
+
+Faixa de preço
+
+</label>
+
+
+<select id="priceFilter">
+
+<option value="">
+Todos preços
+</option>
+
+<option value="0-100">
+Até R$100
+</option>
+
+<option value="100-300">
+R$100 - R$300
+</option>
+
+<option value="300-1000">
+R$300 - R$1000
+</option>
+
+<option value="1000-plus">
+Acima de R$1000
+</option>
+
+</select>
+
+</div>
+
+
+
+
+<div class="sidebar-benefits">
+
+
+<div class="sidebar-benefits__item">
+
+<strong>
+Entrega rápida
+</strong>
+
+<span>
+envio imediato
+</span>
+
+</div>
+
+
+<div class="sidebar-benefits__item">
+
+<strong>
+Pagamento seguro
+</strong>
+
+<span>
+Pix cartão boleto
+</span>
+
+</div>
+
+
+<div class="sidebar-benefits__item">
+
+<strong>
+Projeto premium
+</strong>
+
+<span>
+ideal portfólio
+</span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</aside>
+
+
+
+
+<section
+id="productsSection"
+class="products-content"
+>
+
+
+<div class="products-toolbar">
+
+
+<div>
+
+<h1
+class="products-title"
+id="productsSectionTitle"
+>
+
+Todos produtos
+
+</h1>
+
+
+<p
+class="products-subtitle"
+id="productsSectionSubtitle"
+>
+
+Catálogo dinâmico integrado à API
+
+</p>
+
+</div>
+
+
+
+<div class="products-toolbar__actions">
+
+
+<span
+class="products-pill"
+id="productsCount"
+>
+
+0 produtos
+
+</span>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="products-info-row">
+
+
+<div class="products-info-row__badges">
+
+<span>
+🚚 frete grátis
+</span>
+
+<span>
+•
+</span>
+
+<span>
+entrega rápida
+</span>
+
+<span>
+•
+</span>
+
+<span>
+ofertas
+</span>
+
+</div>
+
+
+</div>
+
+
+
+
+<div
+id="productsLoading"
+class="loading-state"
+>
+
+<div class="loading-state__spinner"></div>
+
+<p>
+Carregando...
+</p>
+
+</div>
+
+
+
+
+<div
+id="productsError"
+class="error-box"
+style="display:none"
+>
+
+Erro ao carregar
+
+<p id="productsErrorMessage"></p>
+
+</div>
+
+
+
+
+<div
+id="productsEmpty"
+class="empty-state"
+style="display:none"
+>
+
+<h3>
+Nenhum produto
+</h3>
+
+<p>
+tente outro filtro
+</p>
+
+</div>
+
+
+
+
+<div
+id="productsGrid"
+class="products-grid"
+></div>
+
+
+</section>
+
+
+</section>
+
+
+</main>
+
+
+
+<script
+type="module"
+src="../assets/js/pages/products.js"
+></script>
+
+
+</body>
+
+
+</html>

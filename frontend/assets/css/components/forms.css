@@ -1,0 +1,165 @@
+@import "../variables.css";
+
+/* GRUPO DE FORM */
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    margin-bottom: 16px;
+
+}
+
+/* LABEL */
+
+.form-label {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: var(--color-text);
+
+}
+
+/* INPUT */
+
+.form-input,
+.form-select,
+.form-textarea {
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border-radius: var(--radius-md);
+
+    border: 1px solid var(--color-border);
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.2s;
+
+    background: white;
+
+}
+
+/* FOCUS */
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+
+    border-color: var(--color-accent);
+
+    box-shadow: 0 0 0 2px rgba(255,153,0,0.2);
+
+}
+
+/* TEXTAREA */
+
+.form-textarea {
+
+    min-height: 100px;
+
+    resize: vertical;
+
+}
+
+/* GRID FORM */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 16px;
+
+}
+
+@media (max-width: 768px) {
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/* BOTÕES FORM */
+
+.form-actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 20px;
+
+}
+
+/* MENSAGENS */
+
+.form-error {
+
+    font-size: 13px;
+
+    color: var(--color-danger);
+
+}
+
+.form-success {
+
+    font-size: 13px;
+
+    color: var(--color-success);
+
+}
+
+/* BUSCA */
+
+.search-box {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+.search-box input {
+
+    flex: 1;
+
+}
+
+/* CHECKBOX */
+
+.form-checkbox {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+/* RADIO */
+
+.form-radio {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}

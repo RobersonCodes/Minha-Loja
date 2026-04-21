@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Minha Loja</title>
+    <meta name="description" content="Checkout da Minha Loja com resumo do pedido, dados do cliente e confirmação integrada ao fluxo do ecommerce.">
+    <link rel="stylesheet" href="../assets/css/pages/checkout.css">
+</head>
+<body>
+    <header class="checkout-header">
+        <div class="checkout-header__container">
+            <a class="brand" href="../index.html" aria-label="Voltar para a página inicial">
+                <span>Minha Loja</span>
+                <span class="brand__badge">Checkout</span>
+            </a>
+
+            <nav class="checkout-nav" aria-label="Navegação principal">
+                <a href="../index.html">Início</a>
+                <a href="./products.html">Produtos</a>
+                <a href="./favorites.html">
+                    Favoritos
+                    <span class="badge-counter" data-favorites-count>0</span>
+                </a>
+                <a href="./cart.html">
+                    Carrinho
+                    <span class="badge-counter" data-cart-count>0</span>
+                </a>
+                <a href="./admin.html">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="checkout-shell">
+        <section class="checkout-topbar">
+            <div>
+                <h1 class="checkout-title">Finalizar compra</h1>
+                <p class="checkout-subtitle">
+                    Fluxo visual de checkout para fortalecer seu projeto de portfólio.
+                </p>
+            </div>
+
+            <strong id="topSummaryItemsCount">0 item(s)</strong>
+        </section>
+
+        <div id="checkoutEmptyState" class="empty-state">
+            <h2>Seu carrinho está vazio</h2>
+            <p>Adicione produtos ao carrinho antes de continuar para o checkout.</p>
+            <a class="btn btn--primary" href="./products.html">Ir para produtos</a>
+        </div>
+
+        <div id="checkoutSuccess" class="checkout-success">
+            <h2>Pedido confirmado com sucesso</h2>
+            <p>
+                Obrigado, <strong id="confirmationName">Cliente</strong>.
+                Seu pedido foi confirmado no valor total de
+                <strong id="confirmationTotal">R$ 0,00</strong>.
+            </p>
+            <p>
+                Itens: <strong id="confirmationItems">0 item(s)</strong><br>
+                Pagamento: <strong id="confirmationPayment">Pix</strong>
+            </p>
+
+            <div class="checkout-success__actions">
+                <a class="btn btn--primary" href="../index.html">Voltar para a loja</a>
+                <a class="btn btn--secondary" href="./products.html">Continuar comprando</a>
+            </div>
+        </div>
+
+        <section id="checkoutContent" class="checkout-content" aria-label="Conteúdo do checkout">
+            <div class="checkout-main">
+                <div class="checkout-box">
+                    <h2 class="checkout-box__title">Itens do pedido</h2>
+                    <div id="checkoutItems" class="checkout-items"></div>
+                </div>
+
+                <div class="checkout-box">
+                    <h2 class="checkout-box__title">Dados do cliente</h2>
+
+                    <form id="checkoutForm" novalidate>
+                        <div class="checkout-form-grid">
+                            <div class="form-group form-group--full">
+                                <label for="customerName">Nome completo</label>
+                                <input
+                                    id="customerName"
+                                    name="customerName"
+                                    type="text"
+                                    placeholder="Seu nome completo"
+                                    autocomplete="name"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="customerEmail">E-mail</label>
+                                <input
+                                    id="customerEmail"
+                                    name="customerEmail"
+                                    type="email"
+                                    placeholder="voce@email.com"
+                                    autocomplete="email"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="customerPhone">Telefone</label>
+                                <input
+                                    id="customerPhone"
+                                    name="customerPhone"
+                                    type="text"
+                                    placeholder="(51) 99999-9999"
+                                    autocomplete="tel"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="customerCpf">CPF</label>
+                                <input
+                                    id="customerCpf"
+                                    name="customerCpf"
+                                    type="text"
+                                    placeholder="000.000.000-00"
+                                    inputmode="numeric"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="paymentMethod">Forma de pagamento</label>
+                                <select id="paymentMethod" name="paymentMethod" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Pix">Pix</option>
+                                    <option value="Cartão de crédito">Cartão de crédito</option>
+                                    <option value="Cartão de débito">Cartão de débito</option>
+                                    <option value="Boleto bancário">Boleto bancário</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <h2 class="checkout-box__title checkout-box__title--spaced">Endereço de entrega</h2>
+
+                        <div class="checkout-form-grid">
+                            <div class="form-group">
+                                <label for="zipCode">CEP</label>
+                                <input
+                                    id="zipCode"
+                                    name="zipCode"
+                                    type="text"
+                                    placeholder="00000-000"
+                                    inputmode="numeric"
+                                    autocomplete="postal-code"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="state">Estado</label>
+                                <input
+                                    id="state"
+                                    name="state"
+                                    type="text"
+                                    placeholder="RS"
+                                    autocomplete="address-level1"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group form-group--full">
+                                <label for="street">Rua / Avenida</label>
+                                <input
+                                    id="street"
+                                    name="street"
+                                    type="text"
+                                    placeholder="Nome da rua"
+                                    autocomplete="address-line1"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="number">Número</label>
+                                <input
+                                    id="number"
+                                    name="number"
+                                    type="text"
+                                    placeholder="123"
+                                    autocomplete="address-line2"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="neighborhood">Bairro</label>
+                                <input
+                                    id="neighborhood"
+                                    name="neighborhood"
+                                    type="text"
+                                    placeholder="Seu bairro"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group form-group--full">
+                                <label for="city">Cidade</label>
+                                <input
+                                    id="city"
+                                    name="city"
+                                    type="text"
+                                    placeholder="Sua cidade"
+                                    autocomplete="address-level2"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="checkout-actions">
+                            <button class="btn btn--primary" type="submit">Confirmar pedido</button>
+                            <a class="btn btn--secondary" href="./cart.html">Voltar ao carrinho</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <aside class="checkout-summary" aria-labelledby="checkoutSummaryTitle">
+                <h2 id="checkoutSummaryTitle" class="checkout-summary__title">Resumo do pedido</h2>
+
+                <div class="checkout-summary__row">
+                    <span>Itens</span>
+                    <strong id="summaryItemsCount">0 item(s)</strong>
+                </div>
+
+                <div class="checkout-summary__row">
+                    <span>Subtotal</span>
+                    <strong id="summarySubtotal">R$ 0,00</strong>
+                </div>
+
+                <div class="checkout-summary__row">
+                    <span>Frete</span>
+                    <strong id="summaryFreight">Grátis</strong>
+                </div>
+
+                <div class="checkout-summary__row checkout-summary__row--total">
+                    <span>Total</span>
+                    <strong id="summaryTotal">R$ 0,00</strong>
+                </div>
+
+                <p class="checkout-summary__note">
+                    Frete grátis para pedidos acima de R$ 500,00.
+                    Este checkout foi projetado para demonstrar UX, organização de código
+                    e integração com estado local.
+                </p>
+            </aside>
+        </section>
+    </main>
+
+    <script type="module" src="../assets/js/pages/checkout.js"></script>
+</body>
+</html>

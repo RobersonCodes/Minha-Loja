@@ -1,0 +1,217 @@
+/* ======================================
+FEEDBACK UI
+toast + skeleton + microinterações
+====================================== */
+
+.toast-container {
+    position: fixed;
+    top: 22px;
+    right: 22px;
+    z-index: 9999;
+    display: grid;
+    gap: 12px;
+    width: min(360px, calc(100vw - 32px));
+    pointer-events: none;
+}
+
+.toast {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: rgba(19, 25, 33, 0.96);
+    color: #ffffff;
+    box-shadow: 0 18px 42px rgba(15, 17, 17, 0.24);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    animation: toast-in 0.28s ease forwards;
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+    pointer-events: auto;
+}
+
+.toast--success {
+    background: rgba(6, 125, 98, 0.96);
+}
+
+.toast--error {
+    background: rgba(177, 39, 4, 0.96);
+}
+
+.toast--info {
+    background: rgba(19, 25, 33, 0.96);
+}
+
+.toast__icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 900;
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.toast__content {
+    flex: 1;
+    min-width: 0;
+}
+
+.toast__title {
+    margin: 0 0 2px;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 1.3;
+}
+
+.toast__message {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.toast__close {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.toast__close:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.toast--leaving {
+    animation: toast-out 0.22s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes toast-in {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes toast-out {
+    to {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+    }
+}
+
+/* ======================================
+SKELETON
+====================================== */
+
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #ececec 0%, #f8f8f8 100%);
+    border-radius: 12px;
+}
+
+.skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.65) 50%,
+        rgba(255,255,255,0) 100%
+    );
+    transform: translateX(-100%);
+    animation: skeleton-shimmer 1.25s infinite;
+}
+
+@keyframes skeleton-shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.skeleton-card {
+    background: #ffffff;
+    border: 1px solid #e3e6e6;
+    border-radius: 22px;
+    padding: 16px;
+    box-shadow: 0 6px 14px rgba(15, 17, 17, 0.06);
+}
+
+.skeleton-card__image {
+    height: 220px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+}
+
+.skeleton-card__line {
+    height: 12px;
+    margin-bottom: 10px;
+}
+
+.skeleton-card__line--sm {
+    width: 40%;
+}
+
+.skeleton-card__line--md {
+    width: 68%;
+}
+
+.skeleton-card__line--lg {
+    width: 92%;
+}
+
+.skeleton-card__price {
+    width: 52%;
+    height: 22px;
+    margin: 14px 0 16px;
+}
+
+.skeleton-card__button {
+    height: 42px;
+    border-radius: 999px;
+    margin-top: 10px;
+}
+
+/* ======================================
+MICRO INTERAÇÕES GLOBAIS
+====================================== */
+
+.interactive-lift {
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+}
+
+.interactive-lift:hover {
+    transform: translateY(-4px);
+}
+
+.interactive-scale {
+    transition: transform 0.18s ease;
+}
+
+.interactive-scale:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .toast-container {
+        top: 14px;
+        right: 14px;
+        left: 14px;
+        width: auto;
+    }
+}

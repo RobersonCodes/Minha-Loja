@@ -1,0 +1,227 @@
+:root {
+    --bg: #eaeded;
+    --surface: #ffffff;
+    --text: #0f1111;
+    --muted: #565959;
+    --primary: #ff9900;
+    --primary-dark: #e47911;
+    --border: #d5d9d9;
+    --shadow: 0 10px 28px rgba(15, 17, 17, 0.08);
+    --container: 1280px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.favorites-header {
+    background: linear-gradient(135deg, #131921, #232f3e);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+}
+
+.favorites-header__container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 900;
+}
+
+.brand__badge {
+    background: var(--primary);
+    color: #111;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.favorites-nav {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.favorites-nav a {
+    color: #fff;
+    font-weight: 700;
+}
+
+.favorites-shell {
+    max-width: var(--container);
+    margin: 24px auto;
+    padding: 0 20px 34px;
+}
+
+.favorites-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    background: #fff;
+    border: 1px solid #e3e6e6;
+    border-radius: 20px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.favorites-title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.favorites-subtitle {
+    margin: 6px 0 0;
+    color: var(--muted);
+}
+
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.favorite-card {
+    background: var(--surface);
+    border: 1px solid #e3e6e6;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.favorite-card__image-wrapper {
+    background: linear-gradient(180deg, #f8f8f8, #efefef);
+    padding: 14px;
+}
+
+.favorite-card__image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #fff;
+    border-radius: 12px;
+}
+
+.favorite-card__content {
+    padding: 16px;
+}
+
+.favorite-card__category {
+    display: inline-flex;
+    margin-bottom: 10px;
+    color: #9a5a00;
+    background: #fff6e8;
+    border: 1px solid #ffe0a8;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.favorite-card__title {
+    margin: 0 0 12px;
+    font-size: 1.08rem;
+    line-height: 1.4;
+}
+
+.favorite-card__price {
+    margin: 0 0 16px;
+    font-size: 1.3rem;
+    font-weight: 900;
+}
+
+.favorite-card__actions {
+    display: grid;
+    gap: 10px;
+}
+
+.btn {
+    border: none;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn--primary {
+    background: var(--primary);
+    color: #111;
+    box-shadow: 0 8px 18px rgba(255, 153, 0, 0.24);
+}
+
+.btn--primary:hover {
+    background: var(--primary-dark);
+}
+
+.btn--secondary {
+    background: #fff;
+    color: #111;
+    border: 1px solid var(--border);
+}
+
+.empty-state {
+    display: none;
+    background: #fff;
+    border: 1px solid #e3e6e6;
+    border-radius: 20px;
+    padding: 34px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.badge-counter {
+    display: inline-flex;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 999px;
+    align-items: center;
+    justify-content: center;
+    background: #ff9900;
+    color: #111;
+    font-size: 0.78rem;
+    font-weight: 900;
+    margin-left: 6px;
+}
+
+@media (max-width: 768px) {
+    .favorites-header__container,
+    .favorites-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

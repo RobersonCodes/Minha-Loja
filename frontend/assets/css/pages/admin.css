@@ -1,0 +1,889 @@
+:root {
+    --bg: #eaeded;
+    --surface: #ffffff;
+    --text: #0f1111;
+    --muted: #565959;
+    --primary: #ff9900;
+    --primary-dark: #e47911;
+    --border: #d5d9d9;
+    --shadow: 0 10px 28px rgba(15, 17, 17, 0.08);
+    --container: 1280px;
+    --success: #067d62;
+    --paid: #1d4ed8;
+    --pending: #9a5a00;
+    --shipped: #7c3aed;
+    --delivered: #166534;
+    --canceled: #b91c1c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.admin-shell {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 32px 20px 48px;
+}
+
+.admin-header {
+    background: linear-gradient(135deg, #131921, #232f3e);
+    color: #fff;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+    margin-bottom: 24px;
+}
+
+.admin-header__eyebrow {
+    display: inline-flex;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255, 153, 0, 0.18);
+    border: 1px solid rgba(255, 153, 0, 0.3);
+    color: #ffd699;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.admin-header__title {
+    margin: 0 0 10px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+}
+
+.admin-header__subtitle {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.7;
+}
+
+.admin-login-card,
+.admin-section,
+.admin-metric-card {
+    background: var(--surface);
+    border: 1px solid #e3e6e6;
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+}
+
+.admin-login-card {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 28px;
+}
+
+.admin-login-card h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.8rem;
+}
+
+.admin-form {
+    display: grid;
+    gap: 16px;
+}
+
+.admin-form--grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.form-group {
+    display: grid;
+    gap: 8px;
+}
+
+.form-group--full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 800;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select,
+.admin-order-status-select {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 0.96rem;
+    background: #fff;
+    outline: none;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus,
+.admin-order-status-select:focus {
+    border-color: #f0b14b;
+    box-shadow: 0 0 0 3px rgba(240, 177, 75, 0.25);
+}
+
+.admin-dashboard {
+    display: none;
+}
+
+.admin-toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.admin-toolbar__badges {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.admin-metric-card {
+    padding: 16px 18px;
+    min-width: 140px;
+}
+
+.admin-metric-card__label {
+    display: block;
+    color: var(--muted);
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.admin-metric-card strong {
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+
+.admin-section {
+    padding: 24px;
+    margin-bottom: 22px;
+}
+
+.admin-section__header {
+    margin-bottom: 18px;
+}
+
+.admin-section__header h2 {
+    margin: 0 0 6px;
+    font-size: 1.7rem;
+}
+
+.admin-section__header p {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* analytics */
+
+.admin-analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.admin-analytics-card {
+    background: #fff;
+    border: 1px solid #e8ebeb;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(15, 17, 17, 0.04);
+}
+
+.admin-analytics-card__label {
+    display: block;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.admin-analytics-card__value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.admin-charts-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 18px;
+}
+
+.admin-chart-card {
+    background: #fff;
+    border: 1px solid #ececec;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(15, 17, 17, 0.05);
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-chart-card--large {
+    min-height: 360px;
+}
+
+.admin-chart-card__header {
+    margin-bottom: 14px;
+}
+
+.admin-chart-card__header h3 {
+    margin: 0 0 6px;
+    font-size: 1.08rem;
+}
+
+.admin-chart-card__header p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.admin-chart-card__canvas {
+    position: relative;
+    flex: 1;
+    min-height: 260px;
+}
+
+/* produtos */
+
+.admin-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.admin-product-card {
+    background: #fff;
+    border: 1px solid #ececec;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.admin-product-card__image-wrapper {
+    background: linear-gradient(180deg, #f8f8f8, #efefef);
+    padding: 14px;
+}
+
+.admin-product-card__image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.admin-product-card__content {
+    padding: 16px;
+}
+
+.admin-product-card__category {
+    display: inline-flex;
+    margin-bottom: 10px;
+    color: #9a5a00;
+    background: #fff6e8;
+    border: 1px solid #ffe0a8;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.admin-product-card__title {
+    margin: 0 0 12px;
+    font-size: 1.08rem;
+    line-height: 1.4;
+}
+
+.admin-product-card__price {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 900;
+}
+
+/* pedidos */
+
+.admin-orders-list {
+    display: grid;
+    gap: 18px;
+}
+
+.admin-order-card {
+    background: #fff;
+    border: 1px solid #ececec;
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: 0 8px 20px rgba(15, 17, 17, 0.05);
+}
+
+.admin-order-card__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: start;
+    margin-bottom: 18px;
+}
+
+.admin-order-card__label {
+    display: inline-flex;
+    margin-bottom: 8px;
+    color: #9a5a00;
+    background: #fff6e8;
+    border: 1px solid #ffe0a8;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 900;
+}
+
+.admin-order-card__title {
+    margin: 0 0 6px;
+    font-size: 1.35rem;
+}
+
+.admin-order-card__subtitle {
+    margin: 0;
+    color: var(--muted);
+}
+
+.admin-status-badge {
+    display: inline-flex;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+}
+
+.admin-status-badge--pending {
+    background: #fff6e8;
+    color: var(--pending);
+    border-color: #ffe0a8;
+}
+
+.admin-status-badge--paid {
+    background: #eff6ff;
+    color: var(--paid);
+    border-color: #bfdbfe;
+}
+
+.admin-status-badge--shipped {
+    background: #f5f3ff;
+    color: var(--shipped);
+    border-color: #ddd6fe;
+}
+
+.admin-status-badge--delivered {
+    background: #ecfdf3;
+    color: var(--delivered);
+    border-color: #bbf7d0;
+}
+
+.admin-status-badge--canceled {
+    background: #fef2f2;
+    color: var(--canceled);
+    border-color: #fecaca;
+}
+
+.admin-order-card__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.admin-order-info {
+    background: #fcfcfc;
+    border: 1px solid #efefef;
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.admin-order-info__label {
+    display: block;
+    color: var(--muted);
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.admin-order-info__total {
+    font-size: 1.1rem;
+}
+
+.admin-order-address {
+    background: #fcfcfc;
+    border: 1px solid #efefef;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 18px;
+}
+
+.admin-order-address p {
+    margin: 8px 0 0;
+    line-height: 1.6;
+}
+
+.admin-order-status-editor {
+    display: flex;
+    gap: 12px;
+    align-items: end;
+    margin-bottom: 18px;
+    padding: 16px;
+    background: #fcfcfc;
+    border: 1px solid #efefef;
+    border-radius: 14px;
+}
+
+.admin-order-status-editor .form-group {
+    flex: 1;
+}
+
+.admin-order-details h4 {
+    margin: 0 0 14px;
+    font-size: 1.1rem;
+}
+
+.admin-order-items {
+    display: grid;
+    gap: 12px;
+}
+
+.admin-order-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 14px;
+    padding: 14px;
+    border: 1px solid #efefef;
+    border-radius: 14px;
+    background: #fcfcfc;
+}
+
+.admin-order-item__image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.admin-order-item__content h4 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+}
+
+.admin-order-item__content p {
+    margin: 4px 0;
+    color: var(--muted);
+}
+
+/* estados vazios */
+
+.admin-order-items-empty,
+.admin-empty-state {
+    background: #fff;
+    border: 1px dashed #d6d6d6;
+    border-radius: 18px;
+    padding: 28px;
+    text-align: center;
+    color: var(--muted);
+}
+
+.admin-empty-state h3 {
+    margin-top: 0;
+    color: #111;
+}
+
+/* botões */
+
+.btn {
+    border: none;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn--primary {
+    background: var(--primary);
+    color: #111;
+    box-shadow: 0 8px 18px rgba(255, 153, 0, 0.24);
+}
+
+.btn--primary:hover {
+    background: var(--primary-dark);
+}
+
+.btn--secondary {
+    background: #fff;
+    color: #111;
+    border: 1px solid var(--border);
+}
+
+/* responsividade */
+
+@media (max-width: 1200px) {
+    .admin-analytics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .admin-charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1024px) {
+    .admin-order-card__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-toolbar,
+    .admin-order-card__header,
+    .admin-order-status-editor {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin-form--grid,
+    .admin-order-card__grid,
+    .admin-order-item,
+    .admin-analytics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-order-status-editor .btn {
+        width: 100%;
+    }
+
+    .admin-order-status-editor .form-group {
+        width: 100%;
+    }
+
+    .admin-shell {
+        padding: 20px 14px 36px;
+    }
+
+    .admin-header,
+    .admin-login-card,
+    .admin-section {
+        padding: 20px;
+    }
+}
+.image-preview-card {
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    gap: 18px;
+    align-items: center;
+    padding: 18px;
+    border: 1px dashed #cfd4d4;
+    border-radius: 18px;
+    background: #fcfcfc;
+}
+
+.image-preview-card__image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 14px;
+    background: #fff;
+    border: 1px solid #ececec;
+}
+
+.image-preview-card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.image-preview-card__meta strong {
+    font-size: 1rem;
+}
+
+.image-preview-card__meta span {
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .image-preview-card {
+        grid-template-columns: 1fr;
+    }
+
+    .image-preview-card__image {
+        height: 240px;
+    }
+}
+/* =============================
+BADGE TIPO PRODUTO
+============================= */
+
+.admin-product-card__top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:8px;
+margin-bottom:10px;
+}
+
+.admin-product-card__tag{
+
+font-size:11px;
+
+font-weight:800;
+
+padding:4px 8px;
+
+border-radius:999px;
+
+background:#eef2ff;
+
+color:#3730a3;
+
+border:1px solid #c7d2fe;
+
+text-transform:uppercase;
+
+letter-spacing:.4px;
+
+}
+
+.admin-product-card__tag--affiliate{
+
+background:#fff7ed;
+
+color:#9a3412;
+
+border:1px solid #fed7aa;
+
+}
+
+/* =============================
+LINK AFILIADO
+============================= */
+
+.admin-product-card__link{
+
+display:inline-block;
+
+margin-top:8px;
+
+font-size:13px;
+
+font-weight:700;
+
+color:#ff9900;
+
+text-decoration:none;
+
+}
+
+.admin-product-card__link:hover{
+
+text-decoration:underline;
+
+}
+
+/* =============================
+CHECKBOX PREMIUM
+============================= */
+
+.form-group--checkbox{
+
+display:flex;
+
+align-items:center;
+
+}
+
+.checkbox-label{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+font-weight:700;
+
+cursor:pointer;
+
+padding:12px 14px;
+
+border-radius:14px;
+
+border:1px solid var(--border);
+
+background:white;
+
+transition:.2s;
+
+}
+
+.checkbox-label:hover{
+
+border-color:#ff9900;
+
+box-shadow:0 4px 12px rgba(255,153,0,.15);
+
+}
+
+.checkbox-label input{
+
+width:18px;
+height:18px;
+
+cursor:pointer;
+
+accent-color:#ff9900;
+
+}
+
+/* =============================
+GRID FORM MELHORADO
+============================= */
+
+.admin-form--grid{
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:18px;
+
+}
+
+/* =============================
+EFEITO CARD PRODUTO
+============================= */
+
+.admin-product-card{
+
+transition:.2s;
+
+}
+
+.admin-product-card:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 12px 30px rgba(15,17,17,.12);
+
+}
+
+/* =============================
+EFEITO LOADING BOTÃO
+============================= */
+
+.btn[disabled]{
+
+opacity:.7;
+
+cursor:not-allowed;
+
+}
+
+/* =============================
+SEÇÃO FORM MAIS PREMIUM
+============================= */
+
+.admin-section{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.admin-section::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:4px;
+
+background:linear-gradient(
+90deg,
+#ff9900,
+#ffb84d
+);
+
+opacity:.6;
+
+}
+
+/* =============================
+SCROLL PEDIDOS
+============================= */
+
+.admin-orders-list{
+
+max-height:700px;
+
+overflow:auto;
+
+padding-right:6px;
+
+}
+
+.admin-orders-list::-webkit-scrollbar{
+
+width:6px;
+
+}
+
+.admin-orders-list::-webkit-scrollbar-thumb{
+
+background:#ddd;
+
+border-radius:6px;
+
+}
+
+/* =============================
+RESPONSIVO EXTRA
+============================= */
+
+@media(max-width:900px){
+
+.admin-product-card__image{
+
+height:180px;
+
+}
+
+}

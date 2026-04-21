@@ -1,0 +1,108 @@
+:root {
+    /* =========================================================
+       CORES PRINCIPAIS
+    ========================================================= */
+    --color-primary: #111827;
+    --color-primary-light: #1f2937;
+
+    --color-accent: #ff9900;
+    --color-accent-hover: #e47911;
+
+    --color-white: #ffffff;
+    --color-background: #eaeded;
+    --color-surface: #ffffff;
+    --color-border: #d5d9d9;
+
+    --color-text: #0f1111;
+    --color-text-light: #565959;
+
+    --color-success: #067d62;
+    --color-warning: #b7791f;
+    --color-danger: #b12704;
+    --color-info: #1d4ed8;
+
+    /* =========================================================
+       SOMBRAS
+    ========================================================= */
+    --shadow-sm: 0 2px 8px rgba(15, 17, 17, 0.05);
+    --shadow-md: 0 8px 24px rgba(15, 17, 17, 0.08);
+    --shadow-lg: 0 14px 32px rgba(15, 17, 17, 0.12);
+
+    /* =========================================================
+       BORDER RADIUS
+    ========================================================= */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+    --radius-pill: 999px;
+
+    /* =========================================================
+       LAYOUT
+    ========================================================= */
+    --container: 1280px;
+
+    /* =========================================================
+       ESPAÇAMENTOS
+    ========================================================= */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+
+    /* =========================================================
+       TIPOGRAFIA
+    ========================================================= */
+    --font-family-base: Arial, Helvetica, sans-serif;
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 3rem;
+
+    --font-weight-regular: 400;
+    --font-weight-semibold: 700;
+    --font-weight-bold: 800;
+    --font-weight-black: 900;
+
+    /* =========================================================
+       TRANSIÇÕES
+    ========================================================= */
+    --transition-fast: 0.18s ease;
+    --transition-normal: 0.25s ease;
+
+    /* =========================================================
+       ALIASES / COMPATIBILIDADE
+    ========================================================= */
+    --bg: var(--color-background);
+    --surface: var(--color-surface);
+    --text: var(--color-text);
+    --muted: var(--color-text-light);
+    --primary: var(--color-accent);
+    --primary-dark: var(--color-accent-hover);
+    --border: var(--color-border);
+    --shadow: var(--shadow-md);
+}
+:root{
+
+--color-accent:#ff9900;
+--color-accent-hover:#e47911;
+
+--color-background:#eaeded;
+
+--color-text:#111;
+
+--color-border:#ddd;
+
+--shadow-sm:0 4px 12px rgba(0,0,0,0.05);
+
+--radius-md:12px;
+
+font-family:Arial;
+
+}

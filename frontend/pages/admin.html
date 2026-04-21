@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin | Minha Loja</title>
+    <meta
+        name="description"
+        content="Painel administrativo da Minha Loja para gestão de produtos, pedidos e métricas em tempo real."
+    >
+
+    <link rel="stylesheet" href="../assets/css/base/reset.css">
+    <link rel="stylesheet" href="../assets/css/base/variables.css">
+    <link rel="stylesheet" href="../assets/css/base/style.css">
+    <link rel="stylesheet" href="../assets/css/components/buttons.css">
+    <link rel="stylesheet" href="../assets/css/components/forms.css">
+    <link rel="stylesheet" href="../assets/css/components/alerts.css">
+    <link rel="stylesheet" href="../assets/css/components/feedback.css">
+    <link rel="stylesheet" href="../assets/css/pages/admin.css">
+</head>
+
+<body>
+    <main class="admin-shell">
+        <header class="admin-header">
+            <div class="admin-header__content">
+                <span class="admin-header__eyebrow">Painel administrativo</span>
+                <h1 class="admin-header__title">Minha Loja Admin</h1>
+                <p class="admin-header__subtitle">
+                    Gestão de produtos, pedidos e métricas com integração real ao backend.
+                </p>
+            </div>
+        </header>
+
+        <section id="loginBox" class="admin-login-card" aria-labelledby="adminLoginTitle">
+            <h2 id="adminLoginTitle">Login Admin</h2>
+
+            <form id="loginForm" class="admin-form" novalidate>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="admin@admin.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="••••••"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <button class="btn btn--primary" type="submit">
+                    Entrar
+                </button>
+            </form>
+        </section>
+
+        <section
+            id="dashboard"
+            class="admin-dashboard"
+            aria-label="Painel administrativo"
+            style="display: none;"
+        >
+            <div class="admin-toolbar">
+                <div class="admin-toolbar__badges">
+                    <article class="admin-metric-card" aria-label="Total de produtos">
+                        <span class="admin-metric-card__label">Produtos</span>
+                        <strong id="totalProductsBadge">0</strong>
+                    </article>
+
+                    <article class="admin-metric-card" aria-label="Total de pedidos">
+                        <span class="admin-metric-card__label">Pedidos</span>
+                        <strong id="totalOrdersBadge">0</strong>
+                    </article>
+                </div>
+
+                <button id="logoutBtn" class="btn btn--secondary" type="button">
+                    Sair
+                </button>
+            </div>
+
+            <section id="metricsContainer" class="admin-section" aria-labelledby="metricsTitle">
+                <div class="admin-section__header">
+                    <div>
+                        <h2 id="metricsTitle">Métricas da loja</h2>
+                        <p>Visão estratégica com indicadores de vendas e operação.</p>
+                    </div>
+                </div>
+
+                <div class="admin-analytics-grid">
+                    <article class="admin-analytics-card">
+                        <span class="admin-analytics-card__label">Faturamento</span>
+                        <strong id="metricRevenue" class="admin-analytics-card__value">R$ 0,00</strong>
+                    </article>
+
+                    <article class="admin-analytics-card">
+                        <span class="admin-analytics-card__label">Pedidos</span>
+                        <strong id="metricOrders" class="admin-analytics-card__value">0</strong>
+                    </article>
+
+                    <article class="admin-analytics-card">
+                        <span class="admin-analytics-card__label">Ticket Médio</span>
+                        <strong id="metricTicket" class="admin-analytics-card__value">R$ 0,00</strong>
+                    </article>
+
+                    <article class="admin-analytics-card">
+                        <span class="admin-analytics-card__label">Clientes</span>
+                        <strong id="metricCustomers" class="admin-analytics-card__value">0</strong>
+                    </article>
+                </div>
+
+                <div class="admin-charts-grid">
+                    <article class="admin-chart-card admin-chart-card--large">
+                        <div class="admin-chart-card__header">
+                            <h3>Faturamento por dia</h3>
+                            <p>Evolução da receita da loja.</p>
+                        </div>
+                        <div class="admin-chart-card__canvas">
+                            <canvas id="revenueChart" aria-label="Gráfico de faturamento por dia"></canvas>
+                        </div>
+                    </article>
+
+                    <article class="admin-chart-card">
+                        <div class="admin-chart-card__header">
+                            <h3>Pedidos por status</h3>
+                            <p>Distribuição operacional dos pedidos.</p>
+                        </div>
+                        <div class="admin-chart-card__canvas">
+                            <canvas id="statusChart" aria-label="Gráfico de pedidos por status"></canvas>
+                        </div>
+                    </article>
+
+                    <article class="admin-chart-card">
+                        <div class="admin-chart-card__header">
+                            <h3>Vendas por categoria</h3>
+                            <p>Participação das categorias na receita.</p>
+                        </div>
+                        <div class="admin-chart-card__canvas">
+                            <canvas id="categoryChart" aria-label="Gráfico de vendas por categoria"></canvas>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="admin-section" aria-labelledby="newProductTitle">
+                <div class="admin-section__header">
+                    <div>
+                        <h2 id="newProductTitle">Novo Produto</h2>
+                        <p>Cadastre produtos diretamente no painel administrativo.</p>
+                    </div>
+                </div>
+
+                <form id="productForm" class="admin-form admin-form--grid">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            placeholder="Ex: Echo Dot 5"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Preço atual</label>
+                        <input
+                            id="price"
+                            name="price"
+                            type="number"
+                            step="0.01"
+                            min="0"
+                            placeholder="299.90"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="old_price">Preço antigo</label>
+                        <input
+                            id="old_price"
+                            name="old_price"
+                            type="number"
+                            step="0.01"
+                            min="0"
+                            placeholder="349.90"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Categoria</label>
+                        <input
+                            id="category"
+                            name="category"
+                            type="text"
+                            placeholder="eletronicos"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stock">Estoque</label>
+                        <input
+                            id="stock"
+                            name="stock"
+                            type="number"
+                            min="0"
+                            placeholder="10"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rating">Avaliação</label>
+                        <input
+                            id="rating"
+                            name="rating"
+                            type="number"
+                            min="0"
+                            max="5"
+                            step="0.1"
+                            placeholder="4.8"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reviews_count">Quantidade de avaliações</label>
+                        <input
+                            id="reviews_count"
+                            name="reviews_count"
+                            type="number"
+                            min="0"
+                            placeholder="120"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="badge">Badge</label>
+                        <input
+                            id="badge"
+                            name="badge"
+                            type="text"
+                            placeholder="Ex: Oferta / Premium / Amazon"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imageFile">Imagem do produto</label>
+                        <input
+                            id="imageFile"
+                            name="imageFile"
+                            type="file"
+                            accept=".jpg,.jpeg,.png,.webp"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="affiliate_url">Link afiliado (Amazon)</label>
+                        <input
+                            id="affiliate_url"
+                            name="affiliate_url"
+                            type="text"
+                            placeholder="https://amzn.to/..."
+                        >
+                    </div>
+
+                    <div class="form-group form-group--checkbox">
+                        <label class="checkbox-label" for="featured">
+                            <input
+                                id="featured"
+                                name="featured"
+                                type="checkbox"
+                            >
+                            Produto em destaque
+                        </label>
+                    </div>
+
+                    <div class="form-group form-group--checkbox">
+                        <label class="checkbox-label" for="is_affiliate">
+                            <input
+                                id="is_affiliate"
+                                name="is_affiliate"
+                                type="checkbox"
+                            >
+                            Produto afiliado (redireciona para Amazon)
+                        </label>
+                    </div>
+
+                    <div class="form-group form-group--full">
+                        <label for="imageFile">Preview da imagem</label>
+
+                        <div class="image-preview-card" id="imagePreviewCard">
+                            <img
+                                id="imagePreview"
+                                class="image-preview-card__image"
+                                src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='280'><rect width='100%25' height='100%25' fill='%23f3f4f6'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23667085' font-size='22'>Preview da Imagem</text></svg>"
+                                alt="Preview da imagem do produto"
+                            >
+                            <div class="image-preview-card__meta">
+                                <strong id="imagePreviewName">Nenhum arquivo selecionado</strong>
+                                <span id="imagePreviewInfo">
+                                    Escolha uma imagem JPG, PNG ou WEBP de até 5MB.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group--full">
+                        <label for="description">Descrição</label>
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="4"
+                            placeholder="Descrição do produto para enriquecer a vitrine."
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group form-group--full">
+                        <button
+                            id="submitProductButton"
+                            class="btn btn--primary"
+                            type="submit"
+                        >
+                            Cadastrar Produto
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="admin-section" aria-labelledby="productsTitle">
+                <div class="admin-section__header">
+                    <div>
+                        <h2 id="productsTitle">Produtos cadastrados</h2>
+                        <p>Produtos ativos cadastrados no banco SQLite.</p>
+                    </div>
+                </div>
+
+                <div id="productsContainer" class="admin-products-grid"></div>
+            </section>
+
+            <section class="admin-section" aria-labelledby="ordersTitle">
+                <div class="admin-section__header">
+                    <div>
+                        <h2 id="ordersTitle">Pedidos recebidos</h2>
+                        <p>Pedidos realizados no checkout e salvos no backend.</p>
+                    </div>
+                </div>
+
+                <div id="ordersContainer" class="admin-orders-list"></div>
+            </section>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="../assets/js/pages/admin.js"></script>
+</body>
+</html>

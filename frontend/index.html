@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Minha Loja | Ecommerce Profissional</title>
+
+<meta
+name="description"
+content="Minha Loja é um ecommerce full stack com catálogo dinâmico, favoritos, carrinho, checkout e painel administrativo."
+/>
+
+<link rel="stylesheet" href="./assets/css/base/reset.css" />
+<link rel="stylesheet" href="./assets/css/base/variables.css" />
+
+<link rel="stylesheet" href="./assets/css/components/buttons.css" />
+<link rel="stylesheet" href="./assets/css/components/header.css" />
+<link rel="stylesheet" href="./assets/css/components/cards.css" />
+<link rel="stylesheet" href="./assets/css/components/feedback.css" />
+
+<link rel="stylesheet" href="./assets/css/pages/home.css" />
+
+</head>
+
+<body>
+
+<header class="home-header">
+
+<div class="home-header__top">
+
+<div class="home-header__brand-area">
+
+<a
+class="brand"
+href="./index.html"
+aria-label="Ir para página inicial"
+>
+
+<span class="brand__name">
+Minha Loja
+</span>
+
+<span class="brand__badge">
+Marketplace
+</span>
+
+</a>
+
+<div class="home-header__shipping">
+
+<span>
+📍 Entrega rápida
+</span>
+
+<span>•</span>
+
+<span>
+Frete grátis em itens selecionados
+</span>
+
+</div>
+
+</div>
+
+
+<nav
+class="home-header__nav"
+aria-label="Navegação principal"
+>
+
+<a
+href="./index.html"
+class="is-active"
+>
+
+Início
+
+</a>
+
+<a href="./pages/products.html">
+
+Produtos
+
+</a>
+
+
+<a href="./pages/favorites.html">
+
+Favoritos
+
+<span
+class="header-counter"
+data-favorites-count
+>
+
+0
+
+</span>
+
+</a>
+
+
+<a href="./pages/cart.html">
+
+Carrinho
+
+<span
+class="header-counter"
+data-cart-count
+>
+
+0
+
+</span>
+
+</a>
+
+
+<a href="./pages/admin.html">
+
+Admin
+
+</a>
+
+</nav>
+
+</div>
+
+
+<div class="home-header__bottom">
+
+<div class="quick-nav">
+
+<a href="./pages/products.html">
+
+☰ Todos
+
+</a>
+
+<a href="./pages/products.html?sort=price-desc">
+
+Ofertas do Dia
+
+</a>
+
+<a href="./pages/products.html?sort=name-asc">
+
+Mais Vendidos
+
+</a>
+
+<a href="./pages/products.html?category=eletronicos">
+
+Eletrônicos
+
+</a>
+
+<a href="./pages/products.html?category=casa">
+
+Casa
+
+</a>
+
+<a href="./pages/products.html?category=moda">
+
+Moda
+
+</a>
+
+<a href="./pages/products.html?category=acessorios">
+
+Acessórios
+
+</a>
+
+<a href="./pages/products.html?category=beleza">
+
+Beleza
+
+</a>
+
+</div>
+
+
+<form
+class="header-search"
+action="./pages/products.html"
+method="GET"
+>
+
+<input
+type="text"
+name="search"
+placeholder="Pesquisar produtos, marcas e categorias..."
+aria-label="Buscar produtos"
+/>
+
+<button type="submit">
+
+🔍
+
+</button>
+
+</form>
+
+
+<div class="home-header__summary">
+
+<span>
+📦
+</span>
+
+<strong id="heroStats">
+
+Carregando catálogo...
+
+</strong>
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<main class="home-shell">
+
+
+<section class="hero-banner">
+
+<div class="hero-banner__content">
+
+
+<div class="hero-banner__text">
+
+<span class="hero-banner__eyebrow">
+
+Experiência premium
+
+</span>
+
+
+<h1>
+
+Marketplace moderno
+com frontend profissional
+
+</h1>
+
+
+<p>
+
+Projeto full stack com arquitetura escalável,
+UX moderna e integração real com backend Node.js.
+
+</p>
+
+
+<div class="hero-banner__actions">
+
+<a
+class="btn btn--primary"
+href="./pages/products.html"
+>
+
+Explorar produtos
+
+</a>
+
+
+<a
+class="btn btn--secondary"
+href="./pages/cart.html"
+>
+
+Ver carrinho
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="hero-banner__visual">
+
+<img
+src="https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1400&auto=format&fit=crop"
+alt="Marketplace moderno"
+/>
+
+</div>
+
+
+
+<div class="hero-banner__badge">
+
+🔥 Oferta do dia
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<section class="benefits-strip">
+
+<div class="benefits-strip__item">
+
+<strong>
+
+🚚 Frete grátis
+
+</strong>
+
+<span>
+
+Pedidos selecionados
+
+</span>
+
+</div>
+
+
+<div class="benefits-strip__item">
+
+<strong>
+
+💳 Pagamento seguro
+
+</strong>
+
+<span>
+
+Pix, cartão e boleto
+
+</span>
+
+</div>
+
+
+<div class="benefits-strip__item">
+
+<strong>
+
+⚡ Entrega rápida
+
+</strong>
+
+<span>
+
+Envio imediato
+
+</span>
+
+</div>
+
+
+<div class="benefits-strip__item">
+
+<strong>
+
+🛍️ Experiência premium
+
+</strong>
+
+<span>
+
+Projeto full stack
+
+</span>
+
+</div>
+
+</section>
+
+
+
+<section class="trust-strip">
+
+<div class="trust-strip__item">
+
+⭐ 4.9 avaliação média
+
+</div>
+
+<div class="trust-strip__item">
+
+🔒 Checkout seguro
+
+</div>
+
+<div class="trust-strip__item">
+
+📦 +100 produtos
+
+</div>
+
+<div class="trust-strip__item">
+
+🚀 Performance otimizada
+
+</div>
+
+</section>
+
+
+
+<section class="categories-section">
+
+<div class="section-header">
+
+<div>
+
+<h2 class="section-title">
+
+Compre por categoria
+
+</h2>
+
+<p class="section-subtitle">
+
+Explore as categorias mais populares
+
+</p>
+
+</div>
+
+<a
+class="section-link"
+href="./pages/products.html"
+>
+
+Ver tudo ›
+
+</a>
+
+</div>
+
+
+
+<div class="categories-grid">
+
+
+<a
+class="category-card category-card--dark interactive-lift"
+href="./pages/products.html?category=eletronicos"
+>
+
+<span class="category-card__tag">
+
+Tecnologia
+
+</span>
+
+<h3>
+
+Eletrônicos modernos
+
+</h3>
+
+</a>
+
+
+
+<a
+class="category-card category-card--light interactive-lift"
+href="./pages/products.html?category=casa"
+>
+
+<span class="category-card__tag">
+
+Casa
+
+</span>
+
+<h3>
+
+Itens premium
+
+</h3>
+
+</a>
+
+
+
+<a
+class="category-card category-card--accent interactive-lift"
+href="./pages/products.html?category=moda"
+>
+
+<span class="category-card__tag">
+
+Moda
+
+</span>
+
+<h3>
+
+Estilo atual
+
+</h3>
+
+</a>
+
+
+
+<a
+class="category-card category-card--image interactive-lift"
+href="./pages/products.html?category=beleza"
+>
+
+<span class="category-card__tag">
+
+Beleza
+
+</span>
+
+<h3>
+
+Cuidados premium
+
+</h3>
+
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<section class="products-section">
+
+<div class="section-header">
+
+<div>
+
+<h2 class="section-title">
+
+Produtos em destaque
+
+</h2>
+
+<p class="section-subtitle">
+
+Produtos selecionados automaticamente
+
+</p>
+
+</div>
+
+
+<a
+class="section-link"
+href="./pages/products.html"
+>
+
+Ver catálogo ›
+
+</a>
+
+</div>
+
+
+
+<div
+id="homeLoading"
+class="loading-state"
+>
+
+<div class="loading-state__spinner"></div>
+
+<p>
+
+Carregando produtos...
+
+</p>
+
+</div>
+
+
+
+<div
+id="homeError"
+class="error-box"
+style="display:none"
+>
+
+<strong>
+
+Erro ao carregar produtos
+
+</strong>
+
+<p id="homeErrorMessage"></p>
+
+</div>
+
+
+
+<div
+id="homeEmpty"
+class="empty-state"
+style="display:none"
+>
+
+<h3>
+
+Sem produtos cadastrados
+
+</h3>
+
+<p>
+
+Cadastre produtos no painel admin
+
+</p>
+
+</div>
+
+
+
+<div
+id="featuredProductsGrid"
+class="products-grid"
+></div>
+
+</section>
+
+
+
+<section class="promo-section">
+
+<div class="promo-section__content">
+
+<div>
+
+<span class="promo-section__tag">
+
+Arquitetura moderna
+
+</span>
+
+
+<h2>
+
+Projeto full stack profissional
+
+</h2>
+
+
+<p>
+
+Node.js, Express, SQLite,
+JWT Auth,
+API REST,
+Frontend modular
+
+</p>
+
+</div>
+
+
+<a
+class="btn btn--primary"
+href="./pages/admin.html"
+>
+
+Acessar admin
+
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<section class="products-section">
+
+<div class="section-header">
+
+<div>
+
+<h2 class="section-title">
+
+Mais produtos
+
+</h2>
+
+<p class="section-subtitle">
+
+Catálogo dinâmico
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div
+id="homeProductsGrid"
+class="products-grid"
+></div>
+
+</section>
+
+
+</main>
+
+
+
+<footer class="home-footer">
+
+<div class="home-footer__container">
+
+<p>
+
+Minha Loja • Projeto de portfólio
+Node.js • Express • SQLite • JWT • HTML • CSS • JS
+
+</p>
+
+</div>
+
+</footer>
+
+
+
+<script
+type="module"
+src="./assets/js/pages/home.js"
+></script>
+
+</body>
+</html>

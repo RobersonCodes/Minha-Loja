@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto | Minha Loja</title>
+    <meta
+        name="description"
+        content="Detalhes do produto com experiência premium inspirada em ecommerce moderno."
+    >
+
+    <link rel="stylesheet" href="../assets/css/base/reset.css">
+    <link rel="stylesheet" href="../assets/css/base/variables.css">
+    <link rel="stylesheet" href="../assets/css/components/buttons.css">
+    <link rel="stylesheet" href="../assets/css/components/header.css">
+    <link rel="stylesheet" href="../assets/css/components/cards.css">
+    <link rel="stylesheet" href="../assets/css/components/feedback.css">
+    <link rel="stylesheet" href="../assets/css/pages/product.css">
+</head>
+
+<body>
+    <header class="product-header">
+        <div class="product-header__container">
+            <a class="brand" href="../index.html">
+                <span class="brand__name">Minha Loja</span>
+                <span class="brand__badge">Produto</span>
+            </a>
+
+            <nav class="product-nav">
+                <a href="../index.html">Início</a>
+                <a href="./products.html">Produtos</a>
+                <a href="./favorites.html">
+                    Favoritos
+                    <span class="header-counter" data-favorites-count>0</span>
+                </a>
+                <a href="./cart.html">
+                    Carrinho
+                    <span class="header-counter" data-cart-count>0</span>
+                </a>
+                <a href="./admin.html">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="product-shell">
+        <div class="product-shell__container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Início</a>
+                <span>›</span>
+                <a href="./products.html">Produtos</a>
+                <span>›</span>
+                <span id="breadcrumbCurrent">Produto</span>
+            </nav>
+
+            <div id="productLoading" class="loading-state">
+                <div class="loading-state__spinner"></div>
+                <p>Carregando produto...</p>
+            </div>
+
+            <div id="productError" class="error-box hidden">
+                <strong>Erro ao carregar produto.</strong>
+                <p id="productErrorMessage">
+                    Não foi possível carregar os dados do produto.
+                </p>
+            </div>
+
+            <div id="productEmpty" class="empty-state hidden">
+                <h3>Produto não encontrado</h3>
+                <p>O item solicitado não existe ou foi removido.</p>
+                <a class="btn btn--primary" href="./products.html">
+                    Voltar ao catálogo
+                </a>
+            </div>
+
+            <section id="productContent" class="product-layout hidden">
+                <div class="product-gallery">
+                    <div class="product-gallery__sticky">
+                        <div class="product-gallery__main">
+                            <img
+                                id="productImage"
+                                src="https://via.placeholder.com/800x800?text=Minha+Loja"
+                                alt="Produto"
+                            >
+                        </div>
+
+                        <div id="productThumbs" class="product-gallery__thumbs"></div>
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    <span id="productCategory" class="product-category">
+                        Categoria
+                    </span>
+
+                    <h1 id="productName" class="product-title">
+                        Nome do produto
+                    </h1>
+
+                    <div class="product-meta">
+                        <div class="product-rating-stars">
+                            <span id="productRatingStars">★★★★★</span>
+                            <strong id="productRating">0.0</strong>
+                            <span id="productReviews">(0 avaliações)</span>
+                        </div>
+
+                        <div id="productStock" class="product-stock">
+                            Em estoque
+                        </div>
+                    </div>
+
+                    <div class="product-pricing">
+                        <span id="productOldPrice" class="product-old-price hidden">
+                            R$ 0,00
+                        </span>
+
+                        <div class="product-price-highlight">
+                            <strong id="productPrice" class="product-price">
+                                R$ 0,00
+                            </strong>
+
+                            <span
+                                id="productDiscountBadge"
+                                class="product-discount-badge hidden"
+                            >
+                                0% OFF
+                            </span>
+                        </div>
+
+                        <span class="product-installments-highlight">
+                            ou 10x sem juros no cartão
+                        </span>
+                    </div>
+
+                    <p id="productDescription" class="product-description">
+                        Descrição do produto.
+                    </p>
+
+                    <div class="product-actions">
+                        <button
+                            id="addToCartButton"
+                            class="btn btn--primary btn--lg interactive-scale"
+                        >
+                            Adicionar ao carrinho
+                        </button>
+
+                        <button
+                            id="favoriteButton"
+                            class="btn btn--secondary btn--lg"
+                        >
+                            Favoritar
+                        </button>
+                    </div>
+
+                    <div class="product-trust">
+                        <div class="product-trust__item">
+                            <strong>Compra segura</strong>
+                            <span>Ambiente simulado para portfólio profissional.</span>
+                        </div>
+
+                        <div class="product-trust__item">
+                            <strong>Entrega rápida</strong>
+                            <span>Receba em até 24h para regiões selecionadas.</span>
+                        </div>
+
+                        <div class="product-trust__item">
+                            <strong>Pagamento flexível</strong>
+                            <span>Pix, cartão e boleto com visual marketplace moderno.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="product-recommendations">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Você também pode gostar</h2>
+                        <p class="section-subtitle">
+                            Mais produtos do catálogo para continuar navegando.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="recommendedProducts" class="products-grid"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="home-footer">
+        <div class="home-footer__container">
+            <p>
+                Minha Loja • Projeto full stack com Node.js, Express, SQLite, JWT, HTML, CSS e JavaScript.
+            </p>
+        </div>
+    </footer>
+
+    <script type="module" src="../assets/js/pages/product.js"></script>
+</body>
+
+</html>
